@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import classes from "./Layout.css";
-import Quiz from "../../containers/Quiz/Quiz.jsx";
 import MenuToggle from "../../components/Navigation/MenuToggle/MenuToggle.jsx";
+import Drawer from "../../components/Navigation/Drawer/Drawer.jsx";
 
 class Layout extends Component {
   state = { menu: false };
@@ -14,11 +14,14 @@ class Layout extends Component {
     return (
       <div className={classes.Layout}>
         <main>
-          <MenuToggle
-            onToggle={this.toggleMenuHandler}
-            isOpen={this.state.menu}
-          />
-          <Quiz />
+        {/* <Drawer isOpen={this.state.menu} onClose={this.menuCloseHandler} /> */}
+
+        <MenuToggle
+          onToggle={this.toggleMenuHandler}
+          isOpen={this.state.menu}
+        />
+
+        <main>{this.props.children}</main>
         </main>
       </div>
     );
